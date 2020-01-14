@@ -1,0 +1,22 @@
+﻿@model Repository.NotesViewModel
+@{
+    ViewData["Title"] = "Notes";
+}
+
+<h1>Notes</h1>
+<br />
+<br />
+<br />
+@foreach (var n in Model.Notes)
+{
+    <h1>@n.Name</h1>
+    <h4>@n.Content</h4>
+    <br />
+}
+
+<br />
+<br />
+<br />
+@Html.ActionLink("Add new note", "Add", "Notes", new { id = "123" }, null)
+
+

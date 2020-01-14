@@ -1,0 +1,31 @@
+﻿@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+@using (Html.BeginForm())
+{
+    <h4 class="text-center">@ViewBag.error</h4>
+    <div>
+        <fieldset>
+            <legend>Register Form</legend>
+            <div class="editor-label">@Html.LabelFor(u => u.Email)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Email)
+            </div>
+            <div class="editor-label">@Html.LabelFor(u => u.Password)</div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.Password)
+            </div>
+            <div class="editor-label">@Html.LabelFor(u => u.Name)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Name)
+            </div>
+
+            <input type="submit" value="Register" />
+        </fieldset>
+    </div>
+}
+

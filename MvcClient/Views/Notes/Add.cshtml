@@ -1,0 +1,27 @@
+﻿@model Repository.NoteModel
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add new note</h1>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <fieldset>
+            <legend>Register Form</legend>
+            <div class="editor-label">@Html.LabelFor(u => u.Name)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Name)
+            </div>
+
+            <div class="editor-label">@Html.LabelFor(u => u.Content)</div>
+            <div class="editor-field">
+                @Html.TextAreaFor(u => u.Content)
+            </div>
+
+            <input type="submit" value="Add" class="btn btn-success" />
+        </fieldset>
+    </div>
+}
+
