@@ -26,7 +26,7 @@ namespace MvcClient.Controllers
             string result = string.Empty;
             
             try
-            { 
+            {
                 result = await client.GetStringAsync("http://localhost:5001/notes");
             }
             catch
@@ -62,7 +62,7 @@ namespace MvcClient.Controllers
             var stringContent = new StringContent(json);
             
             try
-            { 
+            {
                 var result = await client.PostAsync("http://localhost:5001/notes", stringContent);
             }
             catch

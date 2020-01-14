@@ -7,8 +7,10 @@ using JobTask;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Repository;
 
 namespace IdSrv
 {
@@ -56,6 +58,7 @@ namespace IdSrv
                 endpoints.MapDefaultControllerRoute();
             });
 
+            
             Init.Initialize().Wait();
         }
     }

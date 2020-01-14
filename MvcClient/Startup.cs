@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Repository;
 
 namespace MvcClient
 {
@@ -38,6 +39,7 @@ namespace MvcClient
             .AddCookie("Cookies")
             .AddOpenIdConnect("oidc", options =>
             {
+                //options.Authority = string.Format("http://{0}:5000", Helpers.GetIp(ProjectType.IdSrv));
                 options.Authority = "http://localhost:5000";
                 options.RequireHttpsMetadata = false;
                 options.ClientId = "mvc";
@@ -70,6 +72,8 @@ namespace MvcClient
             {
                 endpoints.MapDefaultControllerRoute();
             });
-        }            
+
+            Helpers.SetIp(ProjectType.Mvc);
+        }
     }
 }

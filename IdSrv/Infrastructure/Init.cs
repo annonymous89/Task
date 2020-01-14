@@ -10,11 +10,11 @@ namespace IdSrv.Infrastructure
     {
         public static async Task Initialize()
         {
+            //init db
             var db = new MongoClient().GetDatabase("NotesDB");
 
             if (!await Repository.MongoCRUD.CollectionExistsAsync("Users", db))
-                await Repository.MongoCRUD.Init(db);
-            
+                await Repository.MongoCRUD.Init(db);            
         }
     }
 }

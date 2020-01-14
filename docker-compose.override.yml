@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  idsrv:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - SERVICE_URL=http://idsrv:5000
+    ports:
+      - "5000"
+
+  api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5001"
+
+
+  mvcclient:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5002"
+

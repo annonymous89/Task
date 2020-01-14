@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  idsrv:
+    image: ${DOCKER_REGISTRY-}idsrv
+    build:
+      context: IdSrv
+      dockerfile: Dockerfile
+    hostname: idserver
+
+  api:
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: API
+      dockerfile: Dockerfile
+    hostname: webapi
+
+
+  mongo:
+    image: mongo:latest
+
+  mvcclient:
+    image: ${DOCKER_REGISTRY-}mvcclient
+    build:
+      context: MvcClient
+      dockerfile: Dockerfile
+    hostname: webmvc

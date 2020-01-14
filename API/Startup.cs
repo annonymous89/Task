@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
+using Repository;
+
 namespace API
 {
     public class Startup
@@ -50,6 +52,8 @@ namespace API
                 endpoints.MapControllers()
                 .RequireAuthorization();
             });
+
+            Helpers.SetIp(ProjectType.Api);
         }
     }
 }

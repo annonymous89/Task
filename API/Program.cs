@@ -13,18 +13,18 @@ namespace API
     {
         public static void Main(string[] args)
         {
-            var loggerFactory = LoggerFactory.Create(builder =>
-            {
-                builder
-                    .AddFilter("Microsoft", LogLevel.Warning)
-                    .AddFilter("System", LogLevel.Warning)
-                    .AddFilter("LoggingConsoleApp.Program", LogLevel.Debug)
-                    .AddFilter("Microsoft.AspNetCore.Authentication", LogLevel.Information)
-                    .AddConsole()
-                    .AddEventLog();
-            });
-            ILogger logger = loggerFactory.CreateLogger<Program>();
-            logger.LogInformation("Example log message");
+            //var loggerFactory = LoggerFactory.Create(builder =>
+            //{
+            //    builder
+            //        .AddFilter("Microsoft", LogLevel.Warning)
+            //        .AddFilter("System", LogLevel.Warning)
+            //        .AddFilter("LoggingConsoleApp.Program", LogLevel.Debug)
+            //        .AddFilter("Microsoft.AspNetCore.Authentication", LogLevel.Information)
+            //        .AddConsole()
+            //        .AddEventLog();
+            //});
+            //ILogger logger = loggerFactory.CreateLogger<Program>();
+            //logger.LogInformation("Example log message");
 
             CreateHostBuilder(args).Build().Run();
         }
@@ -34,6 +34,7 @@ namespace API
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls("http://+:5001");
                 });
     }
 }
